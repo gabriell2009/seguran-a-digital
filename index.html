@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site</title>
+    <title>Gerador de Senhas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Meu Projeto GitHub</h1>
-        <p>Site criado com HTML e CSS</p>
-    </header>
+    <div class="container">
+        <h1>Gerador de Senhas</h1>
 
-    <main>
-        <section class="card">
-            <h2>Sobre</h2>
-            <p>
-                Este é um exemplo simples de página para publicar no GitHub.
-            </p>
-        </section>
+        <div class="senha-box">
+            <div class="caixa" id="c1"></div>
+            <div class="caixa" id="c2"></div>
+            <div class="caixa" id="c3"></div>
+            <div class="caixa" id="c4"></div>
+            <div class="caixa" id="c5"></div>
+            <div class="caixa" id="c6"></div>
+        </div>
 
-        <section class="card">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Responsividade</li>
-            </ul>
-        </section>
-    </main>
+        <button onclick="gerarSenha()">
+            Gerar Senha
+        </button>
+    </div>
 
-    <footer>
-        <p>© 2026 - Meu Projeto</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
