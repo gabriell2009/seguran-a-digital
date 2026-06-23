@@ -1,30 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Senhas</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Senhas</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#1e293b;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    text-align:center;
+}
+
+.caixas{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin:20px 0;
+}
+
+.caixa{
+    width:60px;
+    height:60px;
+    background:white;
+    color:black;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Gerador de Senhas</h1>
+<div class="container">
+    <h1>Gerador de Senhas</h1>
 
-        <div class="senha-box">
-            <div class="caixa" id="c1"></div>
-            <div class="caixa" id="c2"></div>
-            <div class="caixa" id="c3"></div>
-            <div class="caixa" id="c4"></div>
-            <div class="caixa" id="c5"></div>
-            <div class="caixa" id="c6"></div>
-        </div>
-
-        <button onclick="gerarSenha()">
-            Gerar Senha
-        </button>
+    <div class="caixas">
+        <div class="caixa" id="b1">-</div>
+        <div class="caixa" id="b2">-</div>
+        <div class="caixa" id="b3">-</div>
+        <div class="caixa" id="b4">-</div>
+        <div class="caixa" id="b5">-</div>
+        <div class="caixa" id="b6">-</div>
     </div>
 
-    <script src="script.js"></script>
+    <button onclick="gerarSenha()">Gerar Senha</button>
+</div>
+
+<script>
+function gerarSenha() {
+    const numeros = "0123456789";
+    const maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const minusculas = "abcdefghijklmnopqrstuvwxyz";
+
+    let senha = [];
+
+    // 3 números obrigatórios
+    for(let i = 0; i < 3; i++){
+        senha.push(numeros[Math.floor(Math.random() * numeros.length)]);
+    }
+
+    // 2 letras maiúsculas obrigatórias
+    for(let i = 0; i < 2; i++){
+        senha.push(maiusculas[Math.floor(Math.random() * maiusculas.length)]);
+    }
+
+    // 1 letra minúscula
+    senha.push(minusculas[Math.floor(Math.random() * minusculas.length)]);
+
+    // Embaralhar
+    senha.sort(() => Math.random() - 0.5);
+
+    // Mostrar nas 6 caixinhas
+    for(let i = 0; i < 6; i++){
+        document.getElementById("b" + (i + 1)).textContent = senha[i];
+    }
+}
+</script>
+
 </body>
 </html>
