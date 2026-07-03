@@ -41,12 +41,12 @@ button {
     padding: 12px 25px;
     border: none;
     border-radius: 8px;
-    background: #3b82f6;
+    background: #8fe800;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #2563eb;
+    background: #eb02dc;
 }
